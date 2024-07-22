@@ -1,0 +1,23 @@
+﻿@model EntityLayer.Concrete.Feature;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+<div class="card-header border-0">
+    <h3 class="mb-0">Öne Çıkanlar Ekleme Sayfası</h3>
+    <br />
+    @using (Html.BeginForm("Index", "Feature", FormMethod.Post))
+    {
+        @Html.HiddenFor(x => x.FeautureID)
+        @Html.Label("Öne ÇIkan Başlığı")
+        @Html.TextBoxFor(x => x.Header, new { @class = "form-control" })
+        <br />
+        @Html.Label("Öne Çıkan İsim")
+        @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+        <br />
+        @Html.Label("Öne Çıkan")
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-outline-primary">Güncelle</button>
+    }
+</div>

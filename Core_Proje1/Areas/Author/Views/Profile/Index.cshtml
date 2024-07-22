@@ -1,0 +1,78 @@
+﻿@model Core_Proje1.Areas.Author.Models.UserEditViewModel;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AuthorLayout.cshtml";
+}
+
+<style>
+    input[type="file"]::file-selector-button { /* the button to select file */
+        background-color: #ffffff;
+        margin: 0;
+        padding: 0.5rem;
+        border: 0;
+        border-color: #000000;
+        border-right-width: 1px;
+        border-style: solid;
+        color: rgb(0, 0, 0);
+        height: 100%;
+    }
+
+        input[type="file"]::file-selector-button:hover {
+            background-color: #a7a7a7;
+        }
+
+        input[type="file"]::file-selector-button:active {
+            background-color: #ffffff;
+        }
+
+    input[type="file" i] { /* the name of the selected file */
+        width: 100%;
+    }
+
+    .image_input_container {
+        background-color: #ffffff;
+        display: flex;
+        margin: 0.5rem;
+        padding: 0;
+        border: 0;
+        border-color: #000000;
+        border-width: 1px;
+        border-style: solid;
+        max-width: 100%;
+        color: rgb(0, 0, 0);
+    }
+</style>
+
+
+<h1>Index</h1>
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Profil Bilgilerini Düzenle</h4>
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="exampleInputName1">Adınız:</label>
+                    <input type="text" asp-for="Name" class="form-control" id="exampleInputName1" placeholder="Adınız">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Soyadınız:</label>
+                    <input type="text" asp-for="Surname" class="form-control" id="exampleInputName1" placeholder="Soyadınız">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Şifre</label>
+                    <input type="password" asp-for="Password" class="form-control" id="exampleInputEmail3" placeholder="Şifreniz">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword4">Şifre Tekrar</label>
+                    <input type="password" asp-for="PasswordConfirm" class="form-control" id="exampleInputPassword4" placeholder="Şifre tekrar">
+                </div>
+                <div class="form-group">
+                    <label class="image_input_container"><input type="file" asp-for="Picture"></label>
+                </div>
+                <br />
+                <button type="submit" class="btn btn-primary mr-2">Güncelle</button>
+                <button class="btn btn-dark">İptal</button>
+            </form>
+        </div>
+    </div>
+</div>

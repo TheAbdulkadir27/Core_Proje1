@@ -1,0 +1,66 @@
+﻿@model List<EntityLayer.Concrete.Announcement>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AuthorLayout.cshtml";
+}
+@{
+    string color = "";
+}
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Basic Table</h4>
+            <p class="card-description">
+                Add class <code>.table</code>
+            </p>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Başlık</th>
+                            <th>Tarih</th>
+                            <th>Durumu</th>
+                            <th>Detay</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            switch (item.Status)
+                            {
+                                case "yeni yazı":
+                                    color = "badge badge-danger";
+                                    break;
+                                case "yeni video":
+                                    color = "badge badge-warning";
+                                    break;
+                                case "konferans":
+                                    color = "badge badge-info";
+                                    break;
+                                case "workshop":
+                                    color = "badge badge-success";
+                                    break;
+                                case "bootcamp":
+                                    color = "badge badge-primary";
+                                    break;
+                                case "boot":
+                                    color = "badge badge-danger";
+                                    break;
+                                default:
+                                    break;
+                            }
+                            <tr>
+                                <th>@item.ID</th>
+                                <td>@item.Title</td>
+                                <td>@item.date.ToShortDateString()</td>
+                                <td><label class="@color">@item.Status</label></td>
+                                <td><a href="/Author/Default/AnnouncementDetail/@item.ID" class="btn btn-outline-primary">Detaylar</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

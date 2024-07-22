@@ -1,0 +1,34 @@
+﻿@using EntityLayer.Concrete;
+@model PortFolio;
+@{
+    ViewData["Title"] = "UpdateProje";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+<<div class="card-header border-0">
+    <h3 class="mb-0">Proje Güncelleme Sayfası</h3>
+    @using (Html.BeginForm("UpdateProje", "Proje", FormMethod.Post))
+    {
+        @Html.HiddenFor(v=>v.PortFolioID)
+
+        @Html.Label("Proje Başlığı")
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control"})
+        @Html.ValidationMessageFor(x => x.Name, "Proje Başlığı Boş Geçilemez")
+        <br />
+        @Html.Label("Görsel 1")
+        @Html.TextBoxFor(x => x.Image1, new {@class = "form-control" })
+        <br />
+        @Html.ValidationMessageFor(x => x.Image1, "Image1 Boş Geçilemez")
+        @Html.Label("Görsel 2")
+        @Html.TextBoxFor(x => x.Image2, new {@class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Image2, "Image2 Boş Geçilemez")
+        <br />
+        @Html.Label("Project Url")
+        @Html.TextBoxFor(x => x.ProjectUrl, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.ProjectUrl, "ProjectUrl Boş Geçilemez")
+        <br />
+        <button type="submit" class="btn-outline-primary">Güncelle</button>
+    }
+</div>
+
+
+

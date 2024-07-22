@@ -1,0 +1,36 @@
+﻿@model EntityLayer.Concrete.About;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+<div class="card-header border-0">
+    <h3 class="mb-0">Öne Çıkanlar Ekleme Sayfası</h3>
+    <br />
+    @using (Html.BeginForm("Index", "About", FormMethod.Post))
+    {
+        @Html.HiddenFor(x => x.AboutID)
+        @Html.Label("hakkımda ÇIkan Başlığı")
+        @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+        <br />
+        @Html.Label("hakkımda yaş")
+        @Html.TextBoxFor(x => x.Age, new { @class = "form-control" })
+        <br />
+        @Html.Label("Mail")
+        @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+        <br />
+        @Html.Label("Öne çıkan telefon")
+        @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
+        <br />
+        @Html.Label("Öne Çıkan address")
+        @Html.TextBoxFor(x => x.Address, new { @class = "form-control" })
+        <br />
+        @Html.Label("Öne Çıkan ImageUrl")
+        @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+        <br />
+        @Html.Label("Acıklama")
+        @Html.TextAreaFor(x => x.Description, 3, 2, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-outline-primary">Güncelle</button>
+    }
+</div>
+

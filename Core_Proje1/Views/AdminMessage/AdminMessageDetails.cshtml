@@ -1,0 +1,37 @@
+﻿@model EntityLayer.Concrete.AuthorMessage
+@{
+    ViewData["Title"] = "AdminMessageDetails";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Gelen Mesajlar</h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Gönderen</th>
+                            <th>Alıcı</th>
+                            <th>Tarih</th>
+                            <th>Mesaj</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@Model.ID</td>
+                            <td>@Model.SenderName</td>
+                            <td>@Model.ReceiverName</td>
+                            <td>@Model.Date.ToShortDateString()</td>
+                            <td>@Model.MessageContent</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <a asp-action="ReceiverMessageList" class="btn btn-outline-success mr-4 mt-4"> Admin Gelen Mesajlar </a>
+            <a asp-action="SenderMessageList" class="btn btn-outline-primary mr-4 mt-4"> Admin Giden Mesajlar</a>
+        </div>
+    </div>
+</div>
+
